@@ -1,0 +1,75 @@
+@media only screen and (min-width: 286px) {
+  body {
+    background-image: url(/img/fondo-vertical.jpeg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    margin-bottom: 10vh;
+    font-family: 'Manrope', sans-serif;
+    word-spacing: 2px;
+  }
+}
+
+@media only screen and (min-width: 968px) {
+  body {
+    background-image: url(/img/fondo-body.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    margin-bottom: 10vh;
+  }
+}
+
+
+li {
+  font-size: 1.3em;
+}
+
+.calculador {
+  width: 60vw;
+  max-width: 800px;
+  margin-top: 20px;
+  margin-bottom: 3vh;
+}
+
+.calculador .recuadro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: white;
+  background-position: fixed;
+  background-size: cover;
+  border-radius: 9px;
+  padding: 3px;
+  min-height: 180px;
+  height: 15vh;
+  max-height: 200px;
+  padding-inline: 25%;
+  justify-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5vh;
+  font-size-adjust: 1.3rem;
+}
+
+.calculador .recuadro .boton {
+  text-transform: uppercase;
+  font-size: 1rem;
+  border-radius: 6px;
+  background-color: #FF9C00;
+}
+/*# sourceMappingURL=style.css.map */
