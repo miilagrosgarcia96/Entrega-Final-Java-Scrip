@@ -1,0 +1,21 @@
+[
+    {
+    "id": 1,
+    "nombre": "MARIA ELENA GUTIERREZ",
+    "avatar": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp",
+    "reseña": "“¡Busque una cotizacion y prestamo rápido y simple, Y LO CONSEGUI. Inicie el tramite online el jueves a la mañana, y a la tarde ya lo tenía acreditado!"
+    }, 
+    {
+    "id": 2,
+    "nombre": "MELISA GARCIA",
+    "avatar": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp",
+    "reseña": "Me lo recomendó una compañera de trabajo. Complete unos datos en la página y recibí el prestamo que necesitaba!."
+    }, 
+    {
+    "id": 3,
+    "nombre": "JUAN PEREZ",
+    "avatar": "https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp",
+    "reseña": "ME APROBARON MUY RAPIDO EL PRESTAMO QUE NECESITABA! Gracias por ayudarme en mi proyecto.”"
+
+    }
+]

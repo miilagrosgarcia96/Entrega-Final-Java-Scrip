@@ -10,6 +10,7 @@
     font-family: 'Manrope', sans-serif;
     word-spacing: 2px;
   }
+
   li {
     font-size: 1.3em;
   }
@@ -54,7 +55,7 @@
     text-transform: uppercase;
     font-size: 1rem;
     border-radius: 6px;
-    background-color: #FF9C00;
+    background-color: rgba(94, 212, 239, 0.796);
   }
   .cotizaciones {
     background-color: white;
@@ -111,10 +112,19 @@
         -ms-flex-align: center;
             align-items: center;
   }
+  .testimonials {
+    width: 85vw;
+  }
+  .testimonios {
+    background-position: fixed;
+    background-size: cover;
+    margin-bottom: 50px;
+    border-radius: 6px;
+  }
   .subir {
     height: 50px;
     width: 50px;
-    background-color: orange;
+    background-color: rgba(94, 212, 239, 0.796);
     border: 5px solid white;
     color: white;
     position: fixed;
@@ -130,7 +140,7 @@
 
 @media only screen and (min-width: 968px) {
   body {
-    background-image: url(img/fondo-body.jpg);
+    background-image: url(img/fondo-body.jpeg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -159,7 +169,7 @@ body.swal2-shown > [aria-hidden="true"] {
 
 .swal2-confirm {
   border-color: red !important;
-  background-color: #ff9c00   !important;
+  background-color: rgba(94, 212, 239, 0.796)  !important;
 }
 
 input[type=number]::-webkit-inner-spin-button,

@@ -1,4 +1,6 @@
 let cotizaciones = []
+const testimoniosData = "testimonios.json"
+const testimoniosSection = document.getElementById("reviewsTestomonials")
 let recargado = false
 
 
@@ -21,7 +23,7 @@ class Cotizacion {
 function userNuevo() {
     Swal.fire({
         title: '¡Bienvenido!',
-        text: 'por favor ingresa tu nombre a continuación',
+        text: 'por favor ingresa tu nombre',
         input: 'text',
         inputAutoTrim: true,
     }).then((result) => {
@@ -45,7 +47,7 @@ const usuario = localStorage.getItem('usuario') || userNuevo()
 function miUser() {
     Swal.fire({
         title: 'Hola ' + usuario,
-        text: "Bienvenido",
+        text: "Bienvenido ",
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonText: 'cancelar',
@@ -120,7 +122,7 @@ function calculoFinal(num1, cuotas) {
         case "6 cuotas":
             return (num1 * 1.39)
         default:
-            return "elegir entre 1 y 6 cuotas"
+            return "elegir de 1 y 6 cuotas"
     }
 }
 
@@ -139,7 +141,7 @@ function calculoCuotas(num1, cuotas) {
         case "6 cuotas":
             return (num1 * 1.39) / 6
         default:
-            return "elegir entre 1 y 6 cuotas"
+            return "elegir de 1 y 6 cuotas"
     }
 }
 
@@ -148,7 +150,7 @@ function sumarPreciosFinales() {
     let total = cotizaciones.reduce((acumulador, cotizacion) => acumulador + cotizacion.precioFinal, 0)
     console.log("Total a pagar: $", total)
     let printTotal = document.getElementById("totalFinal")
-    printTotal.innerHTML = `El total a financiar es $${total}`
+    printTotal.innerHTML = `El total financiado es $${total}`
 
 }
 
@@ -210,6 +212,57 @@ function recuperarCotizaciones() {
 // }
 
 
+const printTestimonios = (review) => {
+    const {
+        avatar,
+        nombre,
+        reseña
+    } = review
+    return `<div class="col-md-4 mb-0 d-flex align-items-stretch">
+    <div class="card testimonial-card">
+        <div class="card-up" style="background-color: #6d5b98;"></div>
+        <div class="avatar mx-auto bg-white">
+            <img src="${avatar}"
+                class="rounded-circle img-fluid" />
+        </div>
+        <div class="card-body">
+            <h4 class="mb-4">${nombre}</h4>
+            <hr />
+            <p class="dark-grey-text mt-4">
+                <i class="fas fa-quote-left pe-2"></i>${reseña}
+            </p>
+        </div>
+    </div>
+</div>
+`
+}
+
+const printErrorTestomonios = () => {
+    return `<div class="card-body">
+    <h4 class="mb-4">Próximamente vas a ver todo lo que nuestros clientes tienen para contarte!</h4>
+    </div>`
+}
+
+const fetchTestimonios = async () => {
+    const response = await fetch(testimoniosData)
+    const data = await response.json()
+    return data
+}
+
+const cargarTestimonios = async () => {
+    let domTestimonials = ""
+    try {
+        data = await fetchTestimonios()
+        data.forEach(review => {
+            domTestimonials += printTestimonios(review)
+        })
+        testimoniosSection.innerHTML = domTestimonials
+    } catch (error) {
+        testimoniosSection.innerHTML = printErrorTestomonios()
+    }
+}
+cargarTestimonios()
+
 
 function borrarCotizacion() {
     cotizaciones.forEach(cotizacion => {
@@ -241,7 +294,7 @@ const btnCheckout =
                 showCancelButton: true,
                 cancelButtonText: 'cancelar',
                 confirmButtonText: 'terminar',
-                title: '<img class="logo bg-warning" src="" alt=""> <br>Completa el formulario y nos ponemos en contacto pronto',
+                title: '<img class="logo bg-warning" src="" alt=""> <br>Pronto nos pondremos en contacto',
                 allowOutsideClick: false,
                 html: `
                     <div class="container">
@@ -260,9 +313,9 @@ const btnCheckout =
                     
                         
                             <div class="form-group">
-                            <label class="col-md-3 control-label" for="email">Tu correo electrónico</label>
+                            <label class="col-md-3 control-label" for="email">Correo electrónico</label>
                             <div class="col">
-                                <input id="email" name="email" type="text" placeholder="Your email" value = "" class="form-control">
+                                <input id="email" name="email" type="text" placeholder="Email" value = "" class="form-control">
                             </div>
                             </div>
                     
@@ -300,7 +353,7 @@ const btnCheckout =
                             Swal.showLoading()
                         },
                     }).then(()=>{
-                        Swal.fire('Gracias por usar nuestro servicio')
+                        Swal.fire('Gracias por elegirnos')
                         ocultarCotizaciones()
                     cotizaciones = []
                     localStorage.setItem("cotizaciones", JSON.stringify(cotizaciones))
